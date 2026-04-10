@@ -1,4 +1,4 @@
-/* Centrado del formulario en pantalla completa */
+/* CONTACTO: Centrado mediante Flexbox en el contenedor padre */
 .contact-section {
     padding: 100px 5%;
     background-color: #0a0a0a;
@@ -21,7 +21,6 @@
     text-align: left;
 }
 
-/* Grupos de campos en columna */
 .form-group {
     margin-bottom: 22px;
     display: flex;
@@ -36,7 +35,7 @@
     margin-bottom: 8px;
 }
 
-/* Inputs, Selects y Textareas */
+/* ESTILOS DE INPUT: Fondo oscuro con borde que resalta al hacer foco */
 .form-group input, 
 .form-group select, 
 .form-group textarea {
@@ -56,7 +55,6 @@
 .form-buttons {
     display: flex;
     gap: 15px;
-    margin-top: 10px;
 }
 
 .btn-submit {

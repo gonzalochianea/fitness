@@ -1,30 +1,30 @@
-/* Reseteo general: elimina espacios por defecto del navegador */
+/* RESETEO: Elimina estilos por defecto para control total del diseño */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #0a0a0a; /* Fondo negro profundo */
+    background-color: #0a0a0a; /* Fondo oscuro industrial */
     color: #fff;
     font-family: 'Roboto', sans-serif;
 }
 
-/* Header con Flexbox */
+/* HEADER: Uso de Flexbox para alinear elementos y sticky para fijarlo arriba */
 .main-header {
     background-color: #111;
-    border-bottom: 2px solid #0d817c; /* Borde verde agua */
+    border-bottom: 2px solid #0d817c; /* Color de acento verde agua */
     padding: 1rem 5%;
-    position: sticky; /* Menú siempre visible al bajar */
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .navbar {
-    display: flex; /* Alinea logo y menú en línea */
-    justify-content: space-between; /* Uno a cada extremo */
-    align-items: center; /* Centrado vertical */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -34,12 +34,13 @@ body {
 }
 
 .life-text {
-    color: #0d817c; /* Verde agua para LIFE */
+    color: #0d817c;
 }
 
+/* MENÚ: gap para separación constante entre links */
 .nav-links {
     display: flex;
-    list-style: none; /* Quita los puntos de la lista */
+    list-style: none;
     gap: 25px;
 }
 
@@ -52,7 +53,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #0d817c; /* Cambio de color al pasar el mouse */
+    color: #0d817c;
 }
 
 .main-footer {
