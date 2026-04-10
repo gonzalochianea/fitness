@@ -1,35 +1,164 @@
+/* =========================================
+   SECCIÓN TIENDA - CARRUSEL PROFESIONAL
+   ========================================= */
+
 .shop-section {
-    padding: 80px 5%;
-    background-color: #eee;
-    min-height: 100vh;
+    padding: 100px 0;
+    background-color: #050505;
+    overflow: hidden; /* Evita que el título de fondo rompa el ancho */
 }
 
-/* Uso de CSS Grid (Bidimensional) */
-.products-grid {
-    display: grid;
-    /* Crea 3 columnas de igual tamaño */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px;
-    max-width: 1000px;
+/* --- ENCABEZADO VISUAL --- */
+.shop-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Título gigante de fondo tipo marca de agua */
+.shop-title-bg {
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(13, 129, 124, 0.05);
+    position: absolute;
+    width: 100%;
+    top: -50px;
+    letter-spacing: 15px;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* Título principal al frente */
+.shop-title-front {
+    color: #0d817c;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+/* --- CONTENEDOR DEL CARRUSEL --- */
+.carousel-wrapper {
+    position: relative;
+    width: 90%; /* Espacio para que las flechas floten a los costados */
     margin: 0 auto;
+    display: flex;
+    align-items: center;
 }
 
-.product-item {
-    background-color: #ff4500;
-    color: white;
-    height: 200px;
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    overflow-x: auto;
+    scroll-behavior: auto; /* Para que el JS mueva fluido sin lag */
+    scrollbar-width: none; /* Oculta barra en Firefox */
+}
+
+/* Oculta barra de scroll en Chrome y Safari */
+.carousel-container::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* --- FLECHAS CIRCULARES BLANCAS --- */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    z-index: 2000; /* Prioridad máxima por sobre las fotos */
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    
+    /* Efecto de aparición suave */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
 }
 
-/* Responsivo rápido para Grid: Si la pantalla es chica, pasa a 1 columna */
-@media (max-width: 768px) {
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
+/* Posicionamiento por fuera de los bordes del contenedor */
+.arrow-left { 
+    left: -25px; 
+}
+
+.arrow-right { 
+    right: -25px; 
+}
+
+/* Las flechas aparecen cuando el mouse entra al sector de la tienda */
+.carousel-wrapper:hover .arrow {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Efecto visual al hacer click */
+.arrow:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+/* Triángulo interno color verde agua oscuro */
+.arrow::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: 4px solid #0d817c;
+    border-right: 4px solid #0d817c;
+    display: inline-block;
+}
+
+.arrow-right::after { 
+    transform: rotate(45deg); 
+    margin-left: -4px; 
+}
+
+.arrow-left::after { 
+    transform: rotate(-135deg); 
+    margin-right: -4px; 
+}
+
+/* --- LAS TARJETAS DE PRODUCTOS --- */
+.product-card {
+    flex: 0 0 300px; /* Tamaño rígido para que se active el scroll horizontal */
+    height: 420px;
+    border: 1px solid rgba(13, 129, 124, 0.3);
+    position: relative;
+    overflow: hidden;
+    background-color: #111;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(50%); /* Estilo B&N inicial */
+    transition: 0.5s;
+}
+
+/* La imagen recupera su color al pasar el mouse por la card */
+.product-card:hover img {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Texto superpuesto al pie de la imagen */
+.product-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, #0d817c);
+    text-align: center;
+    color: white;
+}
+
+.product-overlay span {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitLife - Asesoría y Suplementos</title>
-    
+    <title>FITLIFE - Asesoría y Suplementos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/header-footer.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/cards.css">
@@ -15,11 +15,11 @@
 
     <header class="main-header">
         <nav class="navbar">
-            <div class="logo">FIT<span>LIFE</span></div>
+            <div class="logo">FIT<span class="life-text">LIFE</span></div>
             <ul class="nav-links">
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#tienda">Suplementos</a></li>
+                <li><a href="#tienda">Tienda</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -27,13 +27,13 @@
 
     <main>
         <section id="home" class="hero-section">
+            <div class="principal-image-container">
+                <img src="img/principal.avif" alt="Entrenamiento Fitness" class="principal-img">
+            </div>
             <div class="hero-content">
                 <h1>Tu mejor versión empieza aquí</h1>
                 <p>Asesoría personalizada para alcanzar tus metas físicas.</p>
                 <a href="#contacto" class="btn-main">Empezar ahora</a>
-            </div>
-            <div class="hero-image-container">
-                <img src="img/tu-imagen-principal.jpg" alt="Entrenamiento Fitness" class="hero-img">
             </div>
         </section>
 
@@ -43,80 +43,86 @@
                 <article class="service-card">
                     <div class="card-img-placeholder"></div>
                     <h3>Plan Virtual</h3>
-                    <p>Entrená desde cualquier parte del mundo con seguimiento por App y WhatsApp.</p>
+                    <p>Entrenamiento remoto con seguimiento semanal y ajustes nutricionales.</p>
                 </article>
-
                 <article class="service-card">
                     <div class="card-img-placeholder"></div>
                     <h3>Plan Presencial</h3>
-                    <p>Entrenamiento 1 a 1 en Buenos Aires para optimizar cada movimiento.</p>
+                    <p>Entrenamiento 1 a 1 para corregir técnica y maximizar el rendimiento.</p>
                 </article>
             </div>
         </section>
 
         <section id="tienda" class="shop-section">
-            <h2 class="section-title">Tienda de Suplementos</h2>
-            <div class="products-grid">
-                <div class="product-item"><span>Proteínas</span></div>
-                <div class="product-item"><span>Creatinas</span></div>
-                <div class="product-item"><span>Pre-entreno</span></div>
-                <div class="product-item"><span>Quemadores</span></div>
-                <div class="product-item"><span>Vitaminas</span></div>
-                <div class="product-item"><span>Accesorios</span></div>
+            <div class="shop-header">
+                <h2 class="shop-title-bg">SUPLEMENTOS</h2>
+                <h2 class="shop-title-front">Nuestra Tienda</h2>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button id="prevBtn" class="arrow arrow-left" type="button"></button>
+                
+                <div id="carousel" class="carousel-container">
+                    <div class="product-card"><img src="img/proteinas.jpg" alt="Proteínas"><div class="product-overlay"><span>Proteínas</span></div></div>
+                    <div class="product-card"><img src="img/creatinas.jpg" alt="Creatinas"><div class="product-overlay"><span>Creatinas</span></div></div>
+                    <div class="product-card"><img src="img/colagenos.jpg" alt="Colágenos"><div class="product-overlay"><span>Colágenos</span></div></div>
+                    <div class="product-card"><img src="img/aminoacidos.jpg" alt="Aminoácidos"><div class="product-overlay"><span>Aminoácidos</span></div></div>
+                    <div class="product-card"><img src="img/vitaminas.jpg" alt="Vitaminas"><div class="product-overlay"><span>Vitaminas y Minerales</span></div></div>
+                    <div class="product-card"><img src="img/carbohidratos.jpg" alt="Carbohidratos"><div class="product-overlay"><span>Carbohidratos y Electrolitos</span></div></div>
+                    <div class="product-card"><img src="img/termogenicos.jpg" alt="Termogénicos"><div class="product-overlay"><span>Termogénicos y Saciadores</span></div></div>
+                    <div class="product-card"><img src="img/shakers.jpg" alt="Shakers"><div class="product-overlay"><span>Shakers</span></div></div>
+                </div>
+
+                <button id="nextBtn" class="arrow arrow-right" type="button"></button>
             </div>
         </section>
 
         <section id="contacto" class="contact-section">
-            <h2 class="section-title">Consultá por tu Plan</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Escribí tu nombre" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="tel">Teléfono</label>
-                    <input type="tel" id="tel" name="tel" placeholder="11 1234 5678">
-                </div>
-
-                <div class="form-group">
-                    <label for="objetivo">Objetivo</label>
-                    <select id="objetivo" name="objetivo">
-                        <option value="perder-peso">Perder Peso</option>
-                        <option value="ganar-musculo">Ganar Músculo</option>
-                        <option value="rendimiento">Rendimiento Deportivo</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Preferencia de contacto:</label>
-                    <div class="radio-group">
-                        <input type="radio" id="whatsapp" name="pref" value="whatsapp"> <label for="whatsapp">WhatsApp</label>
-                        <input type="radio" id="correo" name="pref" value="email"> <label for="correo">Email</label>
+            <div class="contact-container">
+                <h2 class="section-title">Contacto</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="mensaje">Comentarios adicionales</label>
-                    <textarea id="mensaje" name="mensaje" rows="4"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                    </div>
 
-                <div class="form-buttons">
-                    <button type="submit" class="btn-submit">Enviar Consulta</button>
-                    <button type="reset" class="btn-reset">Limpiar</button>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="tel">Teléfono</label>
+                        <input type="tel" id="tel" name="tel" placeholder="11 1234 5678">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">¿Qué estás buscando?</label>
+                        <select id="tipo" name="tipo">
+                            <option value="asesoria">Asesoría Fitness</option>
+                            <option value="suplementos">Suplementos Deportivos</option>
+                            <option value="otro">Otras consultas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="msg">Mensaje</label>
+                        <textarea id="msg" name="msg" rows="4" placeholder="Escribí tu consulta aquí..."></textarea>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-submit">Enviar Consulta</button>
+                        <button type="reset" class="btn-reset">Limpiar</button>
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 Gonzalo Chianea - Proyecto UTN BA</p>
+        <p>&copy; 2026 FITLIFE - Proyecto UTN BA</p>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>

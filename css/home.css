@@ -1,41 +1,64 @@
-/* Sección Hero - Ocupa mínimo una pantalla completa */
+/* Estilos para la sección principal */
 .hero-section {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    background-color: #0a0a0a;
     text-align: center;
-    background-color: #f4f4f4;
+}
+
+/* Contenedor de la imagen (70% del alto de pantalla) */
+.principal-image-container {
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    border-bottom: 3px solid #0d817c;
+}
+
+.principal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* FILTRO B&N: Por defecto la imagen no tiene color */
+    filter: grayscale(100%) brightness(70%) contrast(120%);
+    transition: all 0.6s ease; /* Transición para el efecto de color */
+}
+
+/* EFECTO HOVER: Al pasar el mouse, recupera el color original */
+.principal-image-container:hover .principal-img {
+    filter: grayscale(0%) brightness(100%) contrast(100%);
+}
+
+.hero-content {
     padding: 40px 20px;
 }
 
 .hero-content h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
 }
 
-/* Imagen que ocupa el 80% de ancho y alto (Requisito TP) */
-.hero-image-container {
-    width: 80%;
-    height: 80vh; 
-    margin-top: 30px;
-    overflow: hidden;
-    border-radius: 15px;
-}
-
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
+.hero-content p {
+    color: #888;
+    margin-bottom: 30px;
 }
 
 .btn-main {
     display: inline-block;
-    background-color: #ff4500;
-    color: white;
-    padding: 12px 30px;
+    padding: 12px 35px;
+    border: 2px solid #0d817c;
+    color: #0d817c;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #0d817c;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(13, 129, 124, 0.5);
 }

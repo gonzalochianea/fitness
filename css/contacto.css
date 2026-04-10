@@ -1,65 +1,80 @@
+/* Centrado del formulario en pantalla completa */
 .contact-section {
-    padding: 80px 5%;
+    padding: 100px 5%;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 30px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    border-radius: 10px;
+.contact-container {
+    width: 100%;
+    max-width: 550px;
 }
 
-/* Estilo para los grupos de campos */
+.contact-form {
+    background: #111;
+    padding: 40px;
+    border-top: 4px solid #0d817c;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: left;
+}
+
+/* Grupos de campos en columna */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     display: flex;
-    flex-direction: column; /* Label arriba del input */
+    flex-direction: column;
 }
 
 .form-group label {
+    color: #0d817c;
+    font-size: 0.75rem;
     font-weight: bold;
-    margin-bottom: 5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
+/* Inputs, Selects y Textareas */
 .form-group input, 
 .form-group select, 
 .form-group textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background: #050505;
+    border: 1px solid #333;
+    padding: 12px;
+    color: #fff;
+    font-family: inherit;
 }
 
-.radio-group {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #0d817c;
+    outline: none;
 }
 
 .form-buttons {
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .btn-submit {
-    flex: 2; /* El botón de enviar es más largo */
-    background-color: #28a745;
-    color: white;
+    background-color: #0d817c;
+    color: #fff;
     border: none;
-    padding: 12px;
+    padding: 15px;
+    flex: 2;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 .btn-reset {
+    background: transparent;
+    color: #555;
+    border: 1px solid #333;
+    padding: 15px;
     flex: 1;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 12px;
     cursor: pointer;
-    border-radius: 5px;
 }
