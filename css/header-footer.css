@@ -1,0 +1,61 @@
+/* Estilos generales y reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; /* Cambiaremos esto cuando elijas en Google Fonts */
+    line-height: 1.6;
+}
+
+/* Header con Flexbox */
+.main-header {
+    background-color: #222;
+    color: white;
+    padding: 1rem 5%;
+    position: sticky; /* Se queda fijo al scrollear */
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, links a la derecha */
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #ff4500; /* Color de acento para la marca */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Espacio entre los links de navegación */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff4500;
+}
+
+/* Footer básico */
+.main-footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 50px;
+}

@@ -1,0 +1,41 @@
+/* Sección Hero - Ocupa mínimo una pantalla completa */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Imagen que ocupa el 80% de ancho y alto (Requisito TP) */
+.hero-image-container {
+    width: 80%;
+    height: 80vh; 
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+.btn-main {
+    display: inline-block;
+    background-color: #ff4500;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
