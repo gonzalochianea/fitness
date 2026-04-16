@@ -6,130 +6,95 @@
     padding: 0 0 100px 0; 
     text-align: center;
     position: relative;
-    overflow: hidden;
-
-    /* FONDO: Efecto Parallax de sección */
     background-image: url('../img/fondo-servicios.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 
-    
     background-color: rgba(0, 0, 0, 0.75); 
     background-blend-mode: overlay;
+    overflow: hidden;
 }
 
-/* --- CABECERA DE SECCIÓN --- */
+/* --- CABECERA --- */
 .section-header-box {
-    width: 100%;
     padding: 60px 0;
     background: linear-gradient(to bottom, #0a0a0a 0%, #0d817c 100%);
     margin-bottom: 60px;
     border-bottom: 2px solid rgba(13, 129, 124, 0.3);
-    position: relative;
-    z-index: 5;
 }
 
 .section-title {
+    font-family: 'Bebas Neue', sans-serif;
     color: #fff;
-    text-transform: uppercase;
     font-size: 2.5rem;
     letter-spacing: 5px;
-    margin: 0;
-    text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+    text-transform: uppercase;
 }
 
-/* --- TRANSICIONES DE SECCIÓN (Sombreado superior e inferior) --- */
-.services-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 150px;
-    background: linear-gradient(to bottom, #0a0a0a, transparent);
-    z-index: 2;
-}
-
-.services-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 150px;
-    background: linear-gradient(to top, #050505, transparent);
-    z-index: 2;
-}
-
-/* --- CONTENEDOR DE TARJETAS --- */
+/* --- CONTENEDOR --- */
 .cards-container {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 5;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
 }
 
+/* --- SERVICE CARD (BANNER) --- */
 .service-card {
-    width: 320px;
-    min-height: 380px; /* Altura para que luzcan las fotos */
-    padding: 40px 30px;
+    width: 100%;
+    max-width: 900px;
+    height: 350px; 
+    padding: 40px 50px;
     border: 1px solid rgba(13, 129, 124, 0.3);
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Texto hacia abajo */
+    justify-content: flex-end; /* Mantiene el texto abajo para que no tape caras/notebook */
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: 0.3s ease;
     z-index: 1;
 }
 
-/* --- CONFIGURACIÓN DE IMÁGENES POR TARJETA --- */
-.card-virtual {
-    background-image: url('../img/fondo-virtual.png');
-    background-size: cover;
-    background-position: center;
-}
+.card-virtual { background-image: url('../img/plan-virtual.png'); background-size: cover; background-position: center; }
+.card-presencial { background-image: url('../img/plan-presencial.png'); background-size: cover; background-position: center; }
 
-.card-presencial {
-    background-image: url('../img/fondo-presencial.png');
-    background-size: cover;
-    background-position: center;
-}
-
-/* Capa de oscurecimiento interna (Overlay) */
+/* Capa de oscurecimiento: Simplificada con 'inset' */
 .service-card::after {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.4) 100%);
-    transition: 0.3s;
-    z-index: -1; /* Detrás del texto */
+    inset: 0; /* Reemplaza top, left, width, height */
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 30%, transparent 80%);
+    z-index: -1;
 }
 
 .service-card:hover {
     border-color: #0d817c;
-    transform: translateY(-8px);
+    transform: scale(1.01); /* Un escalado más sutil es más elegante */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.service-card:hover::after {
-    background: linear-gradient(to top, rgba(13, 129, 124, 0.6) 0%, rgba(0,0,0,0.8) 100%);
+/* --- ESTILO DE LA LISTA --- */
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 450px; /* Evita que los puntos largos tapen la imagen de la derecha */
 }
 
-/* --- TEXTO DE LAS CARDS --- */
-.service-card h3 {
-    color: #fff; /* Blanco para que resalte sobre la foto */
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    position: relative;
-}
-
-.service-card p {
-    color: #ccc;
-    line-height: 1.5;
+.card-list li {
+    font-family: 'Roboto', sans-serif;
     font-size: 0.95rem;
-    position: relative;
+    color: #eee;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Asegura legibilidad sobre cualquier parte de la foto */
 }
 
-/* Eliminamos el placeholder viejo porque ya no es necesario */
-.card-img-placeholder {
-    display: none;
+.card-list li i {
+    color: #0d817c;
+    font-size: 0.85rem;
 }
