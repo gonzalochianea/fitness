@@ -11,6 +11,9 @@
     position: relative;
     overflow: hidden;
 
+    /* AJUSTE DE PRECISIÓN: Sella cualquier brecha de renderizado */
+    margin-top: -2px; 
+
     /* --- EFECTO PARALLAX --- */
     background-image: url('../img/fondo-contacto.png'); 
     background-size: cover;
@@ -21,6 +24,7 @@
     background-blend-mode: overlay;
 }
 
+/* --- CABECERA DE SECCIÓN --- */
 .contact-header-box {
     width: 100%;
     padding: 60px 0;
@@ -33,6 +37,7 @@
 
 .contact-title {
     color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
     text-align: center;
     text-transform: uppercase;
     font-size: 2.5rem;
@@ -41,6 +46,7 @@
     text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
 }
 
+/* Sombra superior para transición suave */
 .contact-section::after {
     content: '';
     position: absolute;
@@ -49,17 +55,19 @@
     z-index: 2;
 }
 
+/* --- CONTENEDOR Y FORMULARIO --- */
 .contact-container {
     width: 100%;
     max-width: 550px;
     position: relative;
-    z-index: 5;
+    z-index: 10;
     padding: 0 20px;
 }
 
 .contact-form {
     background: rgba(17, 17, 17, 0.95);
     padding: 40px;
+    border: 1px solid rgba(13, 129, 124, 0.2);
     box-shadow: 0 15px 50px rgba(0,0,0,0.8);
     backdrop-filter: blur(10px);
 }
@@ -86,7 +94,7 @@
     border: 1px solid #333;
     padding: 12px;
     color: #fff;
-    font-family: inherit;
+    font-family: 'Roboto', sans-serif;
     transition: all 0.3s ease;
 }
 
@@ -115,22 +123,22 @@
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Un poco más de espacio entre ellos */
+    gap: 30px;
 }
 
 .social-icon i {
-    font-size: 2.6rem; /* Tamaño incrementado ligeramente */
-    color: rgb(13, 129, 124);
+    font-size: 2.6rem;
+    color: #0d817c;
     transition: all 0.3s ease;
 }
 
 .social-icon:hover i {
     color: #fff;
-    transform: scale(1.1); /* Efecto de crecimiento suave */
+    transform: scale(1.1);
     text-shadow: 0 0 20px rgba(13, 129, 124, 0.6);
 }
 
-/* BOTONES */
+/* --- BOTONES --- */
 .form-buttons {
     display: flex;
     gap: 15px;
@@ -167,4 +175,30 @@
 .btn-reset:hover {
     color: #fff;
     border-color: #fff;
+}
+
+/* =========================================
+   VERSION RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+    .contact-container {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group input, 
+    .form-group textarea, 
+    .form-group select {
+        font-size: 16px; 
+    }
+    .form-buttons {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    .contact-section {
+        background-attachment: scroll; /* Desactiva parallax en móvil */
+    }
 }

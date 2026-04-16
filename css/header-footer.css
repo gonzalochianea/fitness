@@ -1,46 +1,64 @@
-/* RESETEO: Elimina estilos por defecto para control total del diseño */
+/* RESETEO: Elimina estilos por defecto para control total */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- CONFIGURACIÓN GLOBAL DE FUENTES Y FONDO --- */
-body {
-    background-color: #0a0a0a; /* Fondo oscuro industrial */
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6; /* Un detalle extra para que los párrafos se lean mejor */
+/* --- CONFIGURACIÓN GLOBAL --- */
+html {
+    scroll-behavior: smooth; /* Movimiento fluido entre secciones */
+    scroll-padding-top: 70px; /* Evita que el header tape los títulos al navegar */
 }
 
-/* Aplicación global para títulos de FITLIFE */
+body {
+    background-color: #0a0a0a;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+/* Títulos con Google Fonts (Bebas Neue) */
 h1, h2, h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     letter-spacing: 2px; 
     text-transform: uppercase; 
-    margin-bottom: 15px; /* Les da un poco de "aire" respecto al texto de abajo */
+    margin-bottom: 15px;
 }
 
-/* HEADER: Uso de Flexbox para alinear elementos y sticky para fijarlo arriba */
+/* HEADER: Fijo y ajustado para corte perfecto con la imagen */
 .main-header {
-    background-color: #111;
-    border-bottom: 2px solid #0d817c; /* Color de acento verde agua */
-    padding: 1rem 5%;
-    position: sticky;
+    background-color: #111; /* Color sólido para evitar fugas de luz y brechas */
+    border-bottom: 2px solid #0d817c; /* Línea de acento verde agua */
+    padding: 0.8rem 5%;
+    position: fixed;
     top: 0;
+    left: 0;      /* Alineación exacta al borde izquierdo */
+    right: 0;     /* Alineación exacta al borde derecho */
+    width: 100%;
     z-index: 1000;
+    backdrop-filter: blur(8px); /* Efecto de desenfoque premium */
+    box-sizing: border-box; /* Asegura que el borde no ensanche el header */
+    
+    /* El margen negativo obliga al header a solapar la sección siguiente,
+       eliminando cualquier línea de separación fantasma por renderizado */
+    margin-bottom: -2px; 
 }
 
+/* NAVBAR: Organización Flexbox */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .logo {
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 1.8rem;
-    font-weight: bold;
     letter-spacing: 2px;
 }
 
@@ -48,7 +66,7 @@ h1, h2, h3 {
     color: #0d817c;
 }
 
-/* MENÚ: gap para separación constante entre links */
+/* MENÚ DE NAVEGACIÓN */
 .nav-links {
     display: flex;
     list-style: none;
@@ -60,17 +78,45 @@ h1, h2, h3 {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 0.85rem;
-    transition: 0.3s;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #0d817c;
 }
 
+/* FOOTER [cite: 21] */
 .main-footer {
-    background-color: #111;
-    padding: 2rem;
+    background-color: #0a0a0a;
+    padding: 2.5rem 1rem;
     text-align: center;
-    color: #555;
-    border-top: 1px solid #333;
+    color: #666;
+    border-top: 1px solid #1a1a1a;
+    font-size: 0.9rem;
+}
+
+/*  RESPONSIVE HEADER  */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    .nav-links {
+        gap: 10px;
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+    .nav-links a {
+        font-size: 0.75rem;
+    }
 }

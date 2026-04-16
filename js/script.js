@@ -1,42 +1,54 @@
-/* Lógica de interactividad para el carrusel de suplementos */
+/* Lógica de interactividad para el carrusel de suplementos - Versión Rápida */
 document.addEventListener('DOMContentLoaded', () => {
     const carousel = document.getElementById('carousel');
     const btnLeft = document.getElementById('prevBtn');
     const btnRight = document.getElementById('nextBtn');
 
-    let scrollInterval;
-    const scrollSpeed = 5; // Píxeles de movimiento por frame
+    if (!carousel || !btnLeft || !btnRight) return;
 
-    // Función para iniciar el scroll al mantener presionado
+    let scrollInterval;
+    
+    // Aumentamos de 7 a 15 para que duplique la velocidad de desplazamiento
+    const scrollAmount = 15; 
+
     const startScrolling = (direction) => {
+        stopScrolling();
         scrollInterval = setInterval(() => {
-            carousel.scrollLeft += (direction === 'right' ? scrollSpeed : -scrollSpeed);
+            // Se mueve 'scrollAmount' píxeles cada 10 milisegundos
+            carousel.scrollLeft += (direction === 'right' ? scrollAmount : -scrollAmount);
         }, 10);
     };
 
-    // Función para detener el scroll
-    const stopScrolling = () => clearInterval(scrollInterval);
+    const stopScrolling = () => {
+        if (scrollInterval) clearInterval(scrollInterval);
+    };
 
-    // Eventos de Mouse para botón derecho
+    /* --- EVENTOS DERECHA --- */
     btnRight.addEventListener('mousedown', () => startScrolling('right'));
-    btnRight.addEventListener('mouseup', stopScrolling);
-    btnRight.addEventListener('mouseleave', stopScrolling);
+    btnRight.addEventListener('touchstart', (e) => { e.preventDefault(); startScrolling('right'); });
 
-    // Eventos de Mouse para botón izquierdo
+    /* --- EVENTOS IZQUIERDA --- */
     btnLeft.addEventListener('mousedown', () => startScrolling('left'));
-    btnLeft.addEventListener('mouseup', stopScrolling);
+    btnLeft.addEventListener('touchstart', (e) => { e.preventDefault(); startScrolling('left'); });
+
+    /* --- DETENER SCROLL --- */
+    window.addEventListener('mouseup', stopScrolling);
+    window.addEventListener('touchend', stopScrolling);
+    btnRight.addEventListener('mouseleave', stopScrolling);
     btnLeft.addEventListener('mouseleave', stopScrolling);
 
-    // Función para ocultar/mostrar flechas según la posición del scroll
     const updateArrows = () => {
         const pos = carousel.scrollLeft;
         const max = carousel.scrollWidth - carousel.clientWidth;
+        
         btnLeft.style.opacity = pos > 5 ? '1' : '0';
         btnLeft.style.visibility = pos > 5 ? 'visible' : 'hidden';
-        btnRight.style.opacity = pos < max - 5 ? '1' : '0';
-        btnRight.style.visibility = pos < max - 5 ? 'visible' : 'hidden';
+        
+        btnRight.style.opacity = pos < (max - 5) ? '1' : '0';
+        btnRight.style.visibility = pos < (max - 5) ? 'visible' : 'hidden';
     };
 
     carousel.addEventListener('scroll', updateArrows);
-    updateArrows(); // Ejecución inicial
+    updateArrows();
+    window.addEventListener('resize', updateArrows);
 });

@@ -1,8 +1,9 @@
 /* =========================================
-   SECCIÓN SERVICIOS - ESTILO INDUSTRIAL
+   SECCIÓN SERVICIOS - ESTILO INDUSTRIAL 
    ========================================= */
 
 .services-section {
+    min-height: 100vh; /* Consigna UTN: Alto mínimo de pantalla  */
     padding: 0 0 100px 0; 
     text-align: center;
     position: relative;
@@ -13,10 +14,17 @@
     background-color: rgba(0, 0, 0, 0.75); 
     background-blend-mode: overlay;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    /* AJUSTE DE PRECISIÓN: 
+       Mueve la sección hacia arriba para eliminar la brecha con el header fijo */
+    margin-top: -2px; 
 }
 
-/* --- CABECERA --- */
+/* --- CABECERA DE SECCIÓN --- */
 .section-header-box {
+    width: 100%;
     padding: 60px 0;
     background: linear-gradient(to bottom, #0a0a0a 0%, #0d817c 100%);
     margin-bottom: 60px;
@@ -24,14 +32,14 @@
 }
 
 .section-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Bebas Neue', sans-serif; /* Google Font requerida  */
     color: #fff;
+    text-transform: uppercase;
     font-size: 2.5rem;
     letter-spacing: 5px;
-    text-transform: uppercase;
 }
 
-/* --- CONTENEDOR --- */
+/* --- CONTENEDOR DE TARJETAS --- */
 .cards-container {
     display: flex;
     flex-direction: column;
@@ -40,7 +48,7 @@
     padding: 0 20px;
 }
 
-/* --- SERVICE CARD (BANNER) --- */
+/* --- SERVICE CARD: FORMATO BANNER --- */
 .service-card {
     width: 100%;
     max-width: 900px;
@@ -50,7 +58,7 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Mantiene el texto abajo para que no tape caras/notebook */
+    justify-content: flex-end; /* Mantiene el texto abajo para no tapar la acción de la foto */
     position: relative;
     overflow: hidden;
     transition: 0.3s ease;
@@ -64,18 +72,18 @@
 .service-card::after {
     content: '';
     position: absolute;
-    inset: 0; /* Reemplaza top, left, width, height */
+    inset: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.85) 30%, transparent 80%);
     z-index: -1;
 }
 
 .service-card:hover {
     border-color: #0d817c;
-    transform: scale(1.01); /* Un escalado más sutil es más elegante */
+    transform: scale(1.01);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* --- ESTILO DE LA LISTA --- */
+/* --- LISTA DE BENEFICIOS --- */
 .card-list {
     list-style: none;
     padding: 0;
@@ -91,10 +99,47 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Asegura legibilidad sobre cualquier parte de la foto */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Asegura legibilidad sobre el fondo */
 }
 
+/* Iconos de FontAwesome  */
 .card-list li i {
     color: #0d817c;
     font-size: 0.85rem;
+}
+
+/* =========================================
+   VERSION RESPONSIVE (Móviles y Tablets) 
+   ========================================= */
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+    .service-card {
+        max-width: 95%; 
+        height: auto;   
+        min-height: 300px;
+        padding: 30px;
+        background-attachment: scroll; /* Mejora el rendimiento en móviles */
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Celular (360px a 480px) */
+@media (max-width: 480px) {
+    .service-card {
+        padding: 20px;
+        justify-content: center; /* Centra el contenido en pantallas muy pequeñas */
+    }
+    
+    .card-list li {
+        font-size: 0.85rem; 
+        gap: 8px;
+    }
+
+    .section-header-box {
+        padding: 40px 0;
+    }
 }

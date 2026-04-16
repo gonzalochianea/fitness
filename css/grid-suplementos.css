@@ -3,10 +3,14 @@
    ========================================= */
 
 .shop-section {
-    padding: 0 0 120px 0; /* Padding superior en 0 para que el header-box pegue arriba */
+    min-height: 100vh; /* REGLA UTN: Mínimo alto de pantalla */
+    padding: 0 0 120px 0; 
     position: relative;
     text-align: center;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
     /* --- EFECTO PARALLAX --- */
     background-image: url('../img/fondo-suplementos.png'); 
@@ -14,16 +18,14 @@
     background-position: center;
     background-attachment: fixed; 
     
-    /* Capa oscura de base */
     background-color: rgba(10, 10, 10, 0.85); 
     background-blend-mode: overlay;
 }
 
-/* --- CABECERA DE TIENDA (Efecto Difuminado Oceánico) --- */
+/* --- CABECERA DE TIENDA --- */
 .shop-header-box {
     width: 100%;
     padding: 60px 0;
-    /* Degradado de negro a verde agua (estética oficial de la marca) */
     background: linear-gradient(to bottom, #050505 0%, #0d817c 100%);
     margin-bottom: 60px;
     border-bottom: 2px solid rgba(13, 129, 124, 0.3);
@@ -32,7 +34,8 @@
 }
 
 .shop-title {
-    color: #fff; /* Blanco para máxima legibilidad sobre el degradado */
+    font-family: 'Bebas Neue', sans-serif;
+    color: #fff;
     font-size: 2.5rem;
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -65,7 +68,6 @@
     display: flex;
     align-items: center;
     z-index: 5;
-    background: transparent; 
 }
 
 .carousel-container {
@@ -73,11 +75,11 @@
     gap: 25px;
     padding: 30px 0;
     overflow-x: auto;
-    scroll-behavior: auto;
-    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
 }
 
-.carousel-container::-webkit-scrollbar { display: none; }
+.carousel-container::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
 /* --- FLECHAS DE NAVEGACIÓN --- */
 .arrow {
@@ -129,7 +131,7 @@
     object-fit: cover;
     opacity: 0.6;
     filter: brightness(70%);
-    transition: opacity 0.5s, filter 0.5s, transform 0.5s;
+    transition: 0.5s;
 }
 
 .product-card:hover img {
@@ -151,4 +153,43 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* =========================================
+   VERSIÓN RESPONSIVE (Móviles y Tablets)
+   ========================================= */
+
+@media (max-width: 768px) {
+    .shop-section {
+        background-attachment: scroll; /* Desactiva parallax para fluidez */
+    }
+    .product-card {
+        flex: 0 0 250px;
+        height: 350px;
+    }
+    .shop-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-header-box {
+        padding: 40px 0;
+        margin-bottom: 30px;
+    }
+    .carousel-container {
+        gap: 15px;
+        padding-left: 20px; /* Aire para que la primera card no pegue al borde */
+    }
+    .product-card {
+        flex: 0 0 200px;
+        height: 300px;
+    }
+    /* Ocultamos flechas en móvil: el usuario usa el dedo */
+    .arrow {
+        display: none !important;
+    }
+    .carousel-wrapper {
+        width: 100%;
+    }
 }
