@@ -1,8 +1,4 @@
-/* =========================================
-   SECCIÓN HOME - HERO PRINCIPAL 
-   ========================================= */
-
-/* CONTENEDOR PRINCIPAL: Ocupa el alto de pantalla mínimo [cite: 45, 46] */
+/* CONTENEDOR PRINCIPAL */
 .hero-section {
     min-height: 100vh; 
     display: flex;
@@ -11,30 +7,28 @@
     justify-content: center;
     background-color: #0a0a0a;
     text-align: center;
-    /* Espacio para el header fijo  */
     padding-top: 60px; 
 }
 
-/* CONTENEDOR DE IMAGEN: Ajustado para corte perfecto con el header */
+/* CONTENEDOR DE IMAGEN */
 .principal-image-container {
     width: 100%;
-    height: 80vh; /* Ocupa el 80% del alto de pantalla */
+    height: 80vh; 
     overflow: hidden;
-    border-bottom: 3px solid #0d817c; /* Línea de acento verde agua */
+    border-bottom: 3px solid #0d817c; 
     margin: 0;
     padding: 0;
-    line-height: 0; /* Elimina espacios de renderizado fantasma */
+    line-height: 0; 
 }
 
-/* IMAGEN PRINCIPAL: 100% de ancho */
+/* IMAGEN PRINCIPAL */
 .principal-img {
-    display: block; /* Elimina espacio inferior tipográfico */
+    display: block; 
     width: 100%;
     height: 100%;
     object-fit: cover;
     margin: 0;
     padding: 0;
-    /* FILTRO: Estética industrial B&N */
     filter: grayscale(100%) brightness(70%) contrast(120%);
     transition: all 0.6s ease;
 }
@@ -81,9 +75,7 @@
     box-shadow: 0 0 15px rgba(13, 129, 124, 0.5);
 }
 
-/* =========================================
-   VERSION RESPONSIVE 
-   ========================================= */
+/* RESPONSIVE HOME*/
 
 /* Tablet (768px) */
 @media (max-width: 768px) {

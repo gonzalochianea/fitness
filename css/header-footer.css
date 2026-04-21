@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* --- CONFIGURACIÓN GLOBAL --- */
+/* CONFIGURACIÓN GLOBAL */
 html {
     scroll-behavior: smooth; /* Movimiento fluido entre secciones */
     scroll-padding-top: 70px; /* Evita que el header tape los títulos al navegar */
@@ -27,22 +27,19 @@ h1, h2, h3 {
     margin-bottom: 15px;
 }
 
-/* HEADER: Fijo y ajustado para corte perfecto con la imagen */
+/* HEADER */
 .main-header {
-    background-color: #111; /* Color sólido para evitar fugas de luz y brechas */
-    border-bottom: 2px solid #0d817c; /* Línea de acento verde agua */
+    background-color: #111; 
+    border-bottom: 2px solid #0d817c; 
     padding: 0.8rem 5%;
     position: fixed;
     top: 0;
-    left: 0;      /* Alineación exacta al borde izquierdo */
-    right: 0;     /* Alineación exacta al borde derecho */
+    left: 0;      
+    right: 0;    
     width: 100%;
     z-index: 1000;
-    backdrop-filter: blur(8px); /* Efecto de desenfoque premium */
-    box-sizing: border-box; /* Asegura que el borde no ensanche el header */
-    
-    /* El margen negativo obliga al header a solapar la sección siguiente,
-       eliminando cualquier línea de separación fantasma por renderizado */
+    backdrop-filter: blur(8px); 
+    box-sizing: border-box; 
     margin-bottom: -2px; 
 }
 
@@ -86,7 +83,7 @@ h1, h2, h3 {
     color: #0d817c;
 }
 
-/* FOOTER [cite: 21] */
+/* FOOTER */
 .main-footer {
     background-color: #0a0a0a;
     padding: 2.5rem 1rem;
@@ -97,6 +94,8 @@ h1, h2, h3 {
 }
 
 /*  RESPONSIVE HEADER  */
+
+/* Tablet (768px) */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -106,7 +105,7 @@ h1, h2, h3 {
         gap: 15px;
     }
 }
-
+/* Celular (480px / 360px) */
 @media (max-width: 480px) {
     .logo {
         font-size: 1.5rem;

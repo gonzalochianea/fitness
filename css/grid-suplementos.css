@@ -1,9 +1,6 @@
-/* =========================================
-   SECCIÓN TIENDA - COMPLETA Y PARALLAX
-   ========================================= */
-
+/* SECCIÓN TIENDA */
 .shop-section {
-    min-height: 100vh; /* REGLA UTN: Mínimo alto de pantalla */
+    min-height: 100vh; 
     padding: 0 0 120px 0; 
     position: relative;
     text-align: center;
@@ -12,17 +9,16 @@
     flex-direction: column;
     justify-content: flex-start;
 
-    /* --- EFECTO PARALLAX --- */
+    /* EFECTO PARALLAX */
     background-image: url('../img/fondo-suplementos.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 
-    
     background-color: rgba(10, 10, 10, 0.85); 
     background-blend-mode: overlay;
 }
 
-/* --- CABECERA DE TIENDA --- */
+/* CABECERA DE TIENDA */
 .shop-header-box {
     width: 100%;
     padding: 60px 0;
@@ -43,7 +39,7 @@
     text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
 }
 
-/* --- DEGRADADOS DE TRANSICIÓN --- */
+/* DEGRADADOS DE TRANSICIÓN */
 .shop-section::before {
     content: '';
     position: absolute;
@@ -60,7 +56,7 @@
     z-index: 2;
 }
 
-/* --- CARRUSEL --- */
+/* CARRUSEL */
 .carousel-wrapper {
     position: relative;
     width: 95%; 
@@ -81,7 +77,7 @@
 
 .carousel-container::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
-/* --- FLECHAS DE NAVEGACIÓN --- */
+/* FLECHAS DE NAVEGACIÓN*/
 .arrow {
     position: absolute;
     top: 50%;
@@ -116,7 +112,7 @@
 .arrow-right::after { transform: rotate(45deg); margin-left: -4px; }
 .arrow-left::after { transform: rotate(-135deg); margin-right: -4px; }
 
-/* --- TARJETAS DE PRODUCTOS --- */
+/* TARJETAS DE PRODUCTOS */
 .product-card {
     flex: 0 0 300px;
     height: 420px;
@@ -155,10 +151,9 @@
     letter-spacing: 1px;
 }
 
-/* =========================================
-   VERSIÓN RESPONSIVE (Móviles y Tablets)
-   ========================================= */
+/* RESPONSIVE GRID*/
 
+/* Tablet (768px) */
 @media (max-width: 768px) {
     .shop-section {
         background-attachment: scroll; /* Desactiva parallax para fluidez */
@@ -172,6 +167,7 @@
     }
 }
 
+/* Celular (480px / 360px) */
 @media (max-width: 480px) {
     .shop-header-box {
         padding: 40px 0;

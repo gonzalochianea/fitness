@@ -1,9 +1,7 @@
-/* =========================================
-   SECCIÓN SERVICIOS - ESTILO INDUSTRIAL 
-   ========================================= */
+/* SECCIÓN SERVICIOS - ESTILO INDUSTRIAL */
 
 .services-section {
-    min-height: 100vh; /* Consigna UTN: Alto mínimo de pantalla  */
+    min-height: 100vh; 
     padding: 0 0 100px 0; 
     text-align: center;
     position: relative;
@@ -16,13 +14,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-
-    /* AJUSTE DE PRECISIÓN: 
-       Mueve la sección hacia arriba para eliminar la brecha con el header fijo */
     margin-top: -2px; 
 }
 
-/* --- CABECERA DE SECCIÓN --- */
+/* CABECERA DE SECCIÓN */
 .section-header-box {
     width: 100%;
     padding: 60px 0;
@@ -32,14 +27,14 @@
 }
 
 .section-title {
-    font-family: 'Bebas Neue', sans-serif; /* Google Font requerida  */
+    font-family: 'Bebas Neue', sans-serif; 
     color: #fff;
     text-transform: uppercase;
     font-size: 2.5rem;
     letter-spacing: 5px;
 }
 
-/* --- CONTENEDOR DE TARJETAS --- */
+/* CONTENEDOR DE TARJETAS */
 .cards-container {
     display: flex;
     flex-direction: column;
@@ -48,7 +43,7 @@
     padding: 0 20px;
 }
 
-/* --- SERVICE CARD: FORMATO BANNER --- */
+/* SERVICE CARD: FORMATO BANNER */
 .service-card {
     width: 100%;
     max-width: 900px;
@@ -58,7 +53,7 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Mantiene el texto abajo para no tapar la acción de la foto */
+    justify-content: flex-end; 
     position: relative;
     overflow: hidden;
     transition: 0.3s ease;
@@ -83,7 +78,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* --- LISTA DE BENEFICIOS --- */
+/* LISTA DE BENEFICIOS */
 .card-list {
     list-style: none;
     padding: 0;
@@ -99,7 +94,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Asegura legibilidad sobre el fondo */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); 
 }
 
 /* Iconos de FontAwesome  */
@@ -108,9 +103,7 @@
     font-size: 0.85rem;
 }
 
-/* =========================================
-   VERSION RESPONSIVE (Móviles y Tablets) 
-   ========================================= */
+/* RESPONSIVE CARDS*/
 
 /* Tablet (768px) */
 @media (max-width: 768px) {

@@ -1,11 +1,6 @@
-/* =========================================
-   ARCHIVO CENTRAL DE ESTILOS - FITLIFE
-   ========================================= */
+/* ARCHIVO CENTRAL DE ESTILOS - FITLIFE */
 
-/* 1. Base y Estructura Global */
 @import url('header-footer.css');
-
-/* 2. Secciones de la One Page */
 @import url('home.css');
 @import url('cards.css');
 @import url('grid-suplementos.css');
